@@ -1,0 +1,8 @@
+flask
+opencv-python-headless
+numpy
+pillow
+mtcnn
+keras-facenet
+yt-dlp
+tensorflow==2.11.0

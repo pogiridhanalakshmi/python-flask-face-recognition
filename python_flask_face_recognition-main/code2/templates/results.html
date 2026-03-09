@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-5xl mx-auto bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-6 text-center">Final Video Result</h2>
+
+    {% if error %}
+      <div class="text-center text-red-600 font-bold mb-4">{{ error }}</div>
+    {% endif %}
+
+    {% if results and results[0][0].endswith('.mp4') %}
+      <div class="text-center">
+        <video controls class="w-full max-w-3xl mx-auto rounded shadow">
+          <source src="{{ url_for('static', filename='clips/' + results[0][0]) }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <a href="{{ url_for('static', filename='clips/' + results[0][0]) }}"
+           download
+           class="mt-4 inline-block bg-green-600 text-white px-4 py-2 rounded">
+           ⬇️ Download Final Video
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
